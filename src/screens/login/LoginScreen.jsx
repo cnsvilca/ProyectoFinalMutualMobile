@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { styles } from './LoginScreen.styles'
 import { useForm, Controller } from 'react-hook-form'
 import { signin } from '../../api/user.service'
 import { UserContext } from '../../contexts/UserContext'
@@ -40,18 +41,18 @@ export const LoginScreen = () => {
     }
 
     return (
-        <View >
-            <View >
-                <Ionicons name="happy-outline" size={100} color="black" />
-                <Text >MUTUAL</Text>
-                <Text >APP</Text>
+        <View style={styles.container}>
+            <View style={styles.titleContainer}>
+                <Ionicons style={styles.iconTitle} name="happy-outline" size={100} color="black" />
+                <Text style={styles.title}>MUTUAL</Text>
+                <Text style={styles.title}>APP</Text>
             </View>
 
             <Controller
                 control={control}
                 render={({ field: { onChange, onBlur, value } }) => (
                     <TextInput
-                        
+                        style={styles.input}
                         placeholder='Usuario'
                         placeholderTextColor={COLORS.primary}
                         onBlur={onBlur}
@@ -63,12 +64,12 @@ export const LoginScreen = () => {
                 name='username'
                 rules={{ required: 'El nombre de usuario es requerido' }}
             />
-            {errors.username && <Text>{errors.username.message}</Text>}
+            {errors.username && <Text style={styles.errorText}>{errors.username.message}</Text>}
             <Controller
                 control={control}
                 render={({ field: { onChange, onBlur, value } }) => (
                     <TextInput
-                        
+                        style={styles.input}
                         placeholder='Contraseña'
                         placeholderTextColor={COLORS.primary}
                         onBlur={onBlur}
@@ -80,9 +81,9 @@ export const LoginScreen = () => {
                 name='password'
                 rules={{ required: 'La constraseña es requerida' }}
             />
-            {errors.password && <Text>{errors.password.message}</Text>}
-            <TouchableOpacity onPress={handleSubmit(handleLogin)}>
-                <Text>Iniciar Sesion</Text>
+            {errors.password && <Text style={styles.errorText}>{errors.password.message}</Text>}
+            <TouchableOpacity style={styles.button} onPress={handleSubmit(handleLogin)}>
+                <Text style={styles.buttonText}>Iniciar Sesion</Text>
             </TouchableOpacity>
         </View>
     )
