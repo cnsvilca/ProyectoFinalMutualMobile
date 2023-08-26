@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
+import { styles } from './UserInfoScreen.styles'
 import { UserContext } from '../../contexts/UserContext'
 
 export const UserInfoScreen = () => {
@@ -10,22 +11,22 @@ export const UserInfoScreen = () => {
     }
 
     return (
-        <View >
-            <View >
-                <View >
-                    <Text>Nombre y Apellido</Text>
-                    <Text>
+        <View style={styles.container}>
+            <View style={styles.section}>
+                <View style={styles.content}>
+                    <Text style={styles.sectionTitle}>Nombre y Apellido</Text>
+                    <Text style={styles.profileName}>
                         {currentUser.afiliado.name} {currentUser.afiliado.lastname}
                     </Text>
                 </View>
-                <View>
-                    <Text>Saldo Disponible</Text>
-                    <Text>$ {currentUser.afiliado.saldo}</Text>
+                <View style={styles.content}>
+                    <Text style={styles.sectionTitle}>Saldo Disponible</Text>
+                    <Text style={styles.profileInfo}>$ {currentUser.afiliado.saldo}</Text>
                 </View>
             </View>
-            <View>
-                <TouchableOpacity  onPress={handleLogout}>
-                    <Text>Salir</Text>
+            <View style={styles.section}>
+                <TouchableOpacity style={styles.button} onPress={handleLogout}>
+                    <Text style={styles.buttonText}>Salir</Text>
                 </TouchableOpacity>
             </View>
 
