@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { View, Text, Pressable, FlatList } from 'react-native'
 import { styles } from './PaymentListScreen.styles'
-import { data } from '../../api/data'
+import { getCuotaByAfiliadoId } from '../../api/cuota.service'
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { UserContext } from '../../contexts/UserContext';
@@ -9,11 +9,18 @@ import { UserContext } from '../../contexts/UserContext';
 import { Ionicons } from '@expo/vector-icons';
 
 
-
-
 export const PaymentListScreen = ({ navigation }) => {
 
     const { currentUser } = useContext(UserContext)
+    const [data, setData] = useState([])
+    
+    useEffect(() => {
+        getCuotaByAfiliadoId(currentUser.afiliado.id_afiliado)
+            .then((data) => {
+                setData(data)
+            })
+            .catch((err) => console.log('!!!!!!!!!!! '+ err))
+    }, [])
 
     const detalleCuota = ({ item }) => (
         <Pressable onPress={() => navigation.navigate('Detalle', { item })}>
@@ -23,7 +30,7 @@ export const PaymentListScreen = ({ navigation }) => {
                     <Text style={styles.cardImporteCuota}>$ {item.monto}</Text>
                 </View>
                 <View style={styles.cardBody}>
-                    <Text style={styles.cardItem}>Codigo:000000{item.id}</Text>
+                    <Text style={styles.cardItem}>Codigo:000000{item.id_cuota}</Text>
                     <Text style={styles.cardItem}>Vencimiento:{item.fecha_vencimiento}</Text>
                     <Text style={styles.cardItem}>Detalle:</Text>
                 </View>
