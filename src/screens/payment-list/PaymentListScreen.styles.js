@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: COLORS.primary
+    color: COLORS.inactive
   },
   cardImporteCuota: {
     marginTop: 10,
@@ -69,6 +69,24 @@ export const styles = StyleSheet.create({
   txtMessage:{
     fontSize:12,
     color: COLORS.primary,
+    fontStyle: 'italic'
+  },
+  titleCuotas:{
+    color: COLORS.white,
+    fontSize: 30,
+    paddingHorizontal:20,
+    fontWeight: 'bold'
+  },
+  titleCuotasContainer:{
+    width:'100%',
+    backgroundColor: COLORS.inactive
+  },
+  pagado:{
+    color:'green',
+    fontStyle: 'italic'
+  },
+  debe:{
+    color:'red',
     fontStyle: 'italic'
   }
 })

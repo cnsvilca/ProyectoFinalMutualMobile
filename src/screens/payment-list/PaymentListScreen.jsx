@@ -9,30 +9,32 @@ import { UserContext } from '../../contexts/UserContext';
 import { Ionicons } from '@expo/vector-icons';
 
 
-export const PaymentListScreen = ({ navigation }) => {
+export const PaymentListScreen = () => {
 
     const { currentUser } = useContext(UserContext)
     const [data, setData] = useState([])
-    
-    useEffect(() => {
-        getCuotaByAfiliadoId(currentUser.afiliado.id_afiliado)
-            .then((data) => {
-                setData(data)
-            })
-            .catch((err) => console.log('!!!!!!!!!!! '+ err))
-    }, [])
 
+    useEffect(() => {
+        if (currentUser) {
+            getCuotaByAfiliadoId(currentUser.afiliado.id_afiliado)
+                .then((data) => {
+                    setData(data)
+                })
+                .catch((err) => console.log('!!!!!!!!!!! ' + err))
+        }
+    }, [currentUser])
+    console.log(data)
     const detalleCuota = ({ item }) => (
-        <Pressable onPress={() => navigation.navigate('Detalle', { item })}>
+        <Pressable>
             <View style={styles.itemContainer}>
                 <View style={styles.cardHeader}>
                     <MaterialCommunityIcons style={styles.cardIcon} name="cash-multiple" size={64} color="black" />
                     <Text style={styles.cardImporteCuota}>$ {item.monto}</Text>
                 </View>
                 <View style={styles.cardBody}>
-                    <Text style={styles.cardItem}>Codigo:000000{item.id_cuota}</Text>
+                    <Text style={styles.cardItem}>Comercio: {item.orden.comercio.name}</Text>
                     <Text style={styles.cardItem}>Vencimiento:{item.fecha_vencimiento}</Text>
-                    <Text style={styles.cardItem}>Detalle:</Text>
+                    <Text style={styles.cardItem}>Estado: {item.estado_pagado ? <Text style={styles.pagado}>PAGADO</Text> :<Text style={styles.debe}>DEBE</Text>}</Text>
                 </View>
             </View>
         </Pressable>
@@ -41,14 +43,28 @@ export const PaymentListScreen = ({ navigation }) => {
     return (
         <>
             {currentUser ?
-                <View style={styles.container}>
-                    <FlatList
-                        data={data}
-                        renderItem={detalleCuota}
-                        keyExtractor={(item) => item.id}
-                        style={styles.itemList}
-                    ></FlatList>
-                </View>
+                data.length !== 0 ?
+
+                    <View style={styles.container}>
+                        <View style={styles.titleCuotasContainer}>
+                            <Text style={styles.titleCuotas}>CUOTAS A PAGAR A LA MUTUAL</Text>
+                        </View>
+                        <FlatList
+                            data={data}
+                            renderItem={detalleCuota}
+                            keyExtractor={(item) => item.id_cuota}
+                            style={styles.itemList}
+                        ></FlatList>
+                    </View>
+                    :
+                    <View style={styles.container}>
+                        <View style={styles.messageContainer}>
+                            <Ionicons style={styles.iconTitle} name="happy-outline" size={100} color="black" />
+                            <Text style={styles.title}>MUTUAL</Text>
+                            <Text style={styles.title}>APP</Text>
+                            <Text style={styles.txtMessage}>No se encontraron registros de cuotas para este afiliado</Text>
+                        </View>
+                    </View>
                 :
                 <View style={styles.container}>
                     <View style={styles.messageContainer}>
@@ -59,8 +75,9 @@ export const PaymentListScreen = ({ navigation }) => {
                     </View>
                 </View>
 
-
             }
+
+
         </>
 
     )
