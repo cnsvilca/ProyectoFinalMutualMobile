@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     marginTop: StatusBar.currentHeight
   },
   section:{
-    height: '50%',
+    height: '70%',
     alignContent: 'center',
   },
   header: {
@@ -49,7 +49,6 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
-    marginTop: '20%',
     color: COLORS.primary
   },
   button: {
@@ -57,7 +56,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
-    marginTop: '40%',
+    marginTop: '10%',
     marginHorizontal:30,
     alignItems: 'center'
   },
@@ -65,5 +64,23 @@ export const styles = StyleSheet.create({
     color: COLORS.white,
     fontSize: 24,
     fontWeight: 'bold'
-  }
+  },
+  txtMessage:{
+    fontSize:12,
+    color: COLORS.inactive,
+    fontStyle: 'italic'
+  },
+  iconTitle:{
+    fontSize: 100,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: COLORS.secondaty
+
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: COLORS.secondaty
+  },
 })
