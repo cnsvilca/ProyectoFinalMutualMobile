@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../../utils/theme'
 import { getAfiliados } from '../../api/afiliado.service'
+import { LinearGradient } from 'expo-linear-gradient';
 
 export const LoginScreen = () => {
     const navigation = useNavigation()
@@ -28,7 +29,7 @@ export const LoginScreen = () => {
                         .then((afiliados) => {
                             const afiliado = afiliados.find((afiliado) => afiliado.user.username === username)
                             if (username === afiliado.user.username) {
-                                setCurrentUser({ username,password,afiliado})
+                                setCurrentUser({ username, password, afiliado })
                                 navigation.navigate('Profile')
                             }
                         })
@@ -42,6 +43,11 @@ export const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={['#1F6E8C', 'transparent']}
+                style={styles.background}
+            />
             <View style={styles.titleContainer}>
                 <Ionicons style={styles.iconTitle} name="happy-outline" size={100} color="black" />
                 <Text style={styles.title}>MUTUAL</Text>

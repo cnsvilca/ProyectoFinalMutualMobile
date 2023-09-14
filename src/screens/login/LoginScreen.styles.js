@@ -8,6 +8,13 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     marginTop: StatusBar.currentHeight
   },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 600,
+  },
   titleContainer:{
     marginBottom:30
   },

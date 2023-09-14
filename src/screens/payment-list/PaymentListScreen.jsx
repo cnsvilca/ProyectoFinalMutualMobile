@@ -23,7 +23,6 @@ export const PaymentListScreen = () => {
                 .catch((err) => console.log('!!!!!!!!!!! ' + err))
         }
     }, [currentUser])
-    console.log(data)
     const detalleCuota = ({ item }) => (
         <Pressable>
             <View style={styles.itemContainer}>
