@@ -8,6 +8,9 @@ import { UserContext } from '../../contexts/UserContext';
 
 import { Ionicons } from '@expo/vector-icons';
 
+import { LinearGradient } from 'expo-linear-gradient';
+
+
 
 export const PaymentListScreen = () => {
 
@@ -33,7 +36,7 @@ export const PaymentListScreen = () => {
                 <View style={styles.cardBody}>
                     <Text style={styles.cardItem}>Comercio: {item.orden.comercio.name}</Text>
                     <Text style={styles.cardItem}>Vencimiento:{item.fecha_vencimiento}</Text>
-                    <Text style={styles.cardItem}>Estado: {item.estado_pagado ? <Text style={styles.pagado}>PAGADO</Text> :<Text style={styles.debe}>DEBE</Text>}</Text>
+                    <Text style={styles.cardItem}>Estado: {item.estado_pagado ? <Text style={styles.pagado}>PAGADO</Text> : <Text style={styles.debe}>DEBE</Text>}</Text>
                 </View>
             </View>
         </Pressable>
@@ -45,8 +48,13 @@ export const PaymentListScreen = () => {
                 data.length !== 0 ?
 
                     <View style={styles.container}>
+                        <LinearGradient
+                            // Background Linear Gradient
+                            colors={['#8ECDDD', 'transparent']}
+                            style={styles.background}
+                        />
                         <View style={styles.titleCuotasContainer}>
-                            <Text style={styles.titleCuotas}>CUOTAS A PAGAR A LA MUTUAL</Text>
+                            <Text style={styles.titleCuotas}>Cuotas a Pagar a la Mutual</Text>
                         </View>
                         <FlatList
                             data={data}
@@ -56,7 +64,7 @@ export const PaymentListScreen = () => {
                         ></FlatList>
                     </View>
                     :
-                    <View style={styles.container}>
+                    <View style={styles.container2}>
                         <View style={styles.messageContainer}>
                             <Ionicons style={styles.iconTitle} name="happy-outline" size={100} color="black" />
                             <Text style={styles.title}>MUTUAL</Text>
@@ -65,7 +73,7 @@ export const PaymentListScreen = () => {
                         </View>
                     </View>
                 :
-                <View style={styles.container}>
+                <View style={styles.container2}>
                     <View style={styles.messageContainer}>
                         <Ionicons style={styles.iconTitle} name="happy-outline" size={100} color="black" />
                         <Text style={styles.title}>MUTUAL</Text>

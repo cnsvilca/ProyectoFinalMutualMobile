@@ -5,8 +5,21 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight,
-    backgroundColor: COLORS.text,
+    backgroundColor: COLORS.primary,
     alignItems: 'center'
+  },
+  container2: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight,
+    backgroundColor: COLORS.secondaty,
+    alignItems: 'center'
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 600,
   },
   itemContainer: {
     flex: 1,
@@ -21,15 +34,15 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 2
   },
-  cardHeader:{
-    flexDirection:'row',
-    justifyContent:'space-around'
+  cardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-around'
   },
-  cardBody:{
-    flexDirection:'column',
+  cardBody: {
+    flexDirection: 'column',
     marginBottom: 20
   },
-  cardIcon:{
+  cardIcon: {
     fontSize: 70,
     marginTop: 10,
     fontWeight: 'bold',
@@ -43,50 +56,52 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     color: COLORS.primary
   },
-  cardItem:{
-    fontSize:22,
+  cardItem: {
+    fontSize: 22,
     marginHorizontal: 20,
     fontWeight: 'bold',
     color: COLORS.primary
   },
-  messageContainer:{
+  messageContainer: {
     flex: 1,
     alignItems: 'center',
   },
-  iconTitle:{
-    marginTop:'50%',
+  iconTitle: {
+    marginTop: '50%',
     fontSize: 100,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: COLORS.primary
+    color: COLORS.text
   },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: COLORS.primary
+    color: COLORS.text
   },
-  txtMessage:{
-    fontSize:12,
-    color: COLORS.primary,
+  txtMessage: {
+    fontSize: 12,
+    color: COLORS.text,
     fontStyle: 'italic'
   },
-  titleCuotas:{
+  titleCuotas: {
     color: COLORS.white,
-    fontSize: 30,
-    paddingHorizontal:20,
-    fontWeight: 'bold'
+    fontSize: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
-  titleCuotasContainer:{
-    width:'100%',
-    backgroundColor: COLORS.inactive
+  titleCuotasContainer: {
+    width: '100%',
+    backgroundColor: COLORS.primary,
   },
-  pagado:{
-    color:'green',
+  pagado: {
+    color: 'green',
     fontStyle: 'italic'
   },
-  debe:{
-    color:'red',
+  debe: {
+    color: 'red',
     fontStyle: 'italic'
   }
 })

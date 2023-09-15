@@ -4,8 +4,15 @@ import { COLORS } from '../../utils/theme'
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.text,
+    backgroundColor: COLORS.primary,
     marginTop: StatusBar.currentHeight
+  },
+  background: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: 600,
   },
   section:{
     height: '70%',
@@ -49,7 +56,7 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
-    color: COLORS.primary
+    color: COLORS.yellow
   },
   button: {
     backgroundColor: COLORS.secondaty,
@@ -74,13 +81,13 @@ export const styles = StyleSheet.create({
     fontSize: 100,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: COLORS.secondaty
+    color: COLORS.white
 
   },
   title: {
     fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: COLORS.secondaty
+    color: COLORS.white
   },
 })

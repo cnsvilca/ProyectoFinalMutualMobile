@@ -22,10 +22,18 @@ const screenOptions = ({ route }) => {
     tabBarIcon: ({ size, color }) => (
       <MaterialCommunityIcons name={iconName} size={size} color={color} />
     ),
-    tabBarActiveTintColor: COLORS.primary,
-    tabBarInactiveTintColor: COLORS.inactive,
+    tabBarActiveTintColor: '#79E0EE',
+    tabBarInactiveTintColor: COLORS.secondaty,
     headerShown: false,
-    tabBarStyle: styles.tabBar
+    tabBarStyle: styles.tabBar,
+    tabBarStyle:{
+      height: 60,
+      paddingHorizontal: 5,
+      paddingTop: 0,
+      backgroundColor: '#0B2447',
+      position: 'absolute',
+      borderTopWidth: 0,
+    }
   }
 }
 

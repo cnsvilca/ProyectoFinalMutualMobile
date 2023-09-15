@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import { styles } from './UserInfoScreen.styles'
 import { UserContext } from '../../contexts/UserContext'
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 
 export const UserInfoScreen = () => {
@@ -14,6 +15,11 @@ export const UserInfoScreen = () => {
 
     return (
         <View style={styles.container}>
+            <LinearGradient
+                // Background Linear Gradient
+                colors={['#1F6E8C', 'transparent']}
+                style={styles.background}
+            />
             <View style={styles.section}>
                 <View style={styles.content}>
                     <Ionicons style={styles.iconTitle} name="happy-outline" size={100} color="black" />
